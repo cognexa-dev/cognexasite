@@ -1,0 +1,81 @@
+---
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  crumbs: Crumb[];
+  variant?: "light" | "dark";
+}
+
+const { crumbs, variant = "light" } = Astro.props;
+const isDark = variant === "dark";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: crumbs.map((c, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: c.label,
+    ...(c.href ? { item: c.href } : {}),
+  })),
+};
+---
+
+<nav aria-label="Breadcrumb" class="py-3">
+  <ol
+    class:list={[
+      "flex flex-wrap items-center gap-1 text-sm",
+      isDark ? "text-slate-400" : "text-slate-500",
+    ]}
+    itemscope
+    itemtype="https://schema.org/BreadcrumbList"
+  >
+    {
+      crumbs.map((crumb, i) => (
+        <li class="flex items-center gap-1">
+          {i > 0 && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-3.5 h-3.5 shrink-0"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          )}
+          {crumb.href && i < crumbs.length - 1 ? (
+            <a
+              href={crumb.href}
+              class:list={[
+                "hover:underline",
+                isDark ? "hover:text-white" : "hover:text-slate-900",
+              ]}
+            >
+              {crumb.label}
+            </a>
+          ) : (
+            <span
+              class:list={[
+                "font-medium",
+                isDark ? "text-white" : "text-slate-900",
+              ]}
+              aria-current="page"
+            >
+              {crumb.label}
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

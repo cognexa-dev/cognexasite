@@ -1,0 +1,286 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import ServiceCard from "../components/shared/ServiceCard.astro";
+import CTASection from "../components/shared/CTASection.astro";
+import TrustBar from "../components/shared/TrustBar.astro";
+import FAQ from "../components/shared/FAQ.astro";
+import { cognexaServices } from "../data/services";
+import { cognexaFaqs } from "../data/faqs";
+import { siteConfig } from "../data/site";
+
+const site = siteConfig.cognexa;
+const sura = siteConfig.surakshitam;
+
+const trustItems = [
+  { value: "10+", label: "Years Technical Experience" },
+  { value: "6+", label: "Service Areas" },
+  { value: "7", label: "Cybersecurity Products" },
+  { value: "24/7", label: "Support Availability" },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: site.name,
+  url: site.domain,
+  telephone: site.phone,
+  email: site.email,
+  areaServed: "India",
+  description:
+    "CogNexa helps businesses secure, automate, organize, and scale their digital operations through cybersecurity, AI automation, data management, and custom technology solutions.",
+};
+---
+
+<MarketingLayout
+  title="IT, Cybersecurity & AI Solutions for Businesses | CogNexa"
+  description="CogNexa helps organizations strengthen cybersecurity, manage data, deploy AI automation, and build custom technology solutions. Based in India. Request free consultation."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="relative bg-slate-900 pt-20 pb-24 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-slate-900 to-cyan-900/20 pointer-events-none"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-3xl pointer-events-none"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-4">
+          IT · Cybersecurity · AI · Data
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight text-balance mb-6">
+          Secure, Automate, and Scale Your Digital Operations
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">
+          CogNexa helps organizations strengthen cybersecurity, clean and manage
+          critical data, deploy AI automation, and build custom technology
+          solutions that solve real business problems.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/contact/"
+            class="inline-flex items-center justify-center px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors text-base"
+            data-event="cta_click"
+            data-location="hero"
+          >
+            Request Free Consultation
+          </a>
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center px-8 py-3.5 border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white font-medium rounded-lg transition-colors text-base"
+          >
+            Explore Services
+          </a>
+        </div>
+        <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-400">
+          <a
+            href={`tel:${site.phoneRaw}`}
+            class="flex items-center gap-2 hover:text-white transition-colors"
+            data-event="phone_click"
+            data-location="hero"
+          >
+            📞 {site.phone}
+          </a>
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:text-white transition-colors"
+            data-event="whatsapp_click"
+            data-location="hero"
+          >
+            💬 WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <TrustBar items={trustItems} variant="dark" />
+
+  <!-- Services Grid -->
+  <section id="services" class="py-20 bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-2">
+          What We Do
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">
+          End-to-End Technology Solutions
+        </h2>
+        <p class="mt-3 text-slate-400 max-w-2xl mx-auto">
+          From securing your network to automating your workflows — we help
+          businesses build resilient, efficient digital operations.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {
+          cognexaServices.map((service) => (
+            <ServiceCard
+              name={service.name}
+              summary={service.summary}
+              href={`/services/${service.slug}/`}
+              cta={service.cta}
+              variant="dark"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Solution -->
+  <section class="py-20 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sm font-semibold text-red-400 uppercase tracking-widest mb-3">
+            The Problem
+          </p>
+          <h2 class="text-3xl font-bold text-white mb-5">
+            Most businesses are exposed, inefficient, and sitting on bad data
+          </h2>
+          <ul class="space-y-3">
+            {
+              [
+                "Networks without proper firewall or monitoring",
+                "Duplicate, missing, or inconsistent business data",
+                "Manual processes that waste hours every week",
+                "No visibility into security threats until it is too late",
+                "IT decisions made without strategy or expertise",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span class="text-red-400 mt-0.5 shrink-0">✗</span>
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-3">
+            The CogNexa Approach
+          </p>
+          <h2 class="text-3xl font-bold text-white mb-5">
+            Practical technology that solves specific problems
+          </h2>
+          <ul class="space-y-3">
+            {
+              [
+                "Managed firewall, VPN, and security monitoring via Surakshitam",
+                "Data cleansing, MDM, and enrichment for reliable business data",
+                "AI automation and local LLM deployment for your workflows",
+                "Custom software that fits your exact process",
+                "Strategic IT consulting backed by real technical experience",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-slate-300">
+                  <span class="text-cyan-400 mt-0.5 shrink-0">✓</span>
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+          <a
+            href="/contact/"
+            class="mt-8 inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
+            data-event="cta_click"
+            data-location="problem-solution"
+          >
+            Talk to Our Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Surakshitam spotlight -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-3">
+        Cybersecurity Suite
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Meet Surakshitam
+      </h2>
+      <p class="text-slate-300 max-w-2xl mx-auto mb-8">
+        Our dedicated cybersecurity product suite — covering managed firewall,
+        vulnerability assessment, penetration testing, WAF, VPN, captive portal,
+        and network monitoring.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={sura.domain}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
+          data-event="service_card_click"
+          data-location="surakshitam-spotlight"
+          data-service="Surakshitam"
+        >
+          Explore Surakshitam
+        </a>
+        <a
+          href="/services/cybersecurity/"
+          class="inline-flex items-center justify-center px-8 py-3 border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white font-medium rounded-lg transition-colors"
+        >
+          Cybersecurity Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="py-20 bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-2">
+          Industries We Serve
+        </p>
+        <h2 class="text-3xl font-bold text-white">
+          Built for organizations across India
+        </h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {
+          [
+            { name: "Education", href: "/industries/education/", emoji: "🎓" },
+            { name: "Healthcare", href: "/industries/healthcare/", emoji: "🏥" },
+            { name: "Manufacturing", href: "/industries/manufacturing/", emoji: "🏭" },
+            { name: "Government", href: "/industries/government/", emoji: "🏛️" },
+            { name: "Hospitality", href: "/industries/hospitality/", emoji: "🏨" },
+            { name: "SME / Business", href: "/contact/", emoji: "🏢" },
+          ].map((ind) => (
+            <a
+              href={ind.href}
+              class="flex flex-col items-center gap-2 p-4 rounded-xl border border-slate-800 hover:border-blue-600 bg-slate-800/50 hover:bg-slate-800 transition-all text-center"
+            >
+              <span class="text-2xl">{ind.emoji}</span>
+              <span class="text-sm font-medium text-slate-300">{ind.name}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <FAQ items={cognexaFaqs} variant="dark" title="Frequently Asked Questions" />
+
+  <!-- Final CTA -->
+  <CTASection
+    eyebrow="Get Started"
+    title="Ready to strengthen your IT and security?"
+    description="Request a free consultation. Our team will understand your requirements and suggest the right approach."
+    primaryLabel="Request Free Consultation"
+    primaryHref="/contact/"
+    primaryEvent="cta_click"
+    secondaryLabel="Call Us Now"
+    secondaryHref={`tel:${site.phoneRaw}`}
+    variant="blue"
+  />
+</MarketingLayout>

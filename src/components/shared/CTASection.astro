@@ -1,0 +1,81 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: string;
+  primaryEvent?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  variant?: "dark" | "blue" | "light";
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  primaryLabel,
+  primaryHref,
+  primaryEvent = "cta_click",
+  secondaryLabel,
+  secondaryHref,
+  variant = "dark",
+} = Astro.props;
+
+const wrapperClass = {
+  dark: "bg-slate-900 text-white",
+  blue: "bg-blue-600 text-white",
+  light: "bg-slate-50 text-slate-900",
+}[variant];
+
+const primaryClass = {
+  dark: "bg-cyan-400 hover:bg-cyan-300 text-slate-900",
+  blue: "bg-white hover:bg-slate-100 text-blue-700",
+  light: "bg-blue-600 hover:bg-blue-700 text-white",
+}[variant];
+
+const secondaryClass = {
+  dark: "border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white",
+  blue: "border border-white/40 hover:border-white text-white/80 hover:text-white",
+  light: "border border-slate-300 hover:border-slate-400 text-slate-600 hover:text-slate-900",
+}[variant];
+---
+
+<section class:list={["py-16 md:py-24", wrapperClass]}>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    {eyebrow && (
+      <p class="text-sm font-semibold uppercase tracking-widest text-cyan-400 mb-3">
+        {eyebrow}
+      </p>
+    )}
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+    <p class:list={["text-lg mb-8", variant === "light" ? "text-slate-600" : "text-slate-300"]}>
+      {description}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={primaryHref}
+        class:list={[
+          "inline-flex items-center justify-center px-8 py-3 rounded-lg font-semibold transition-colors",
+          primaryClass,
+        ]}
+        data-event={primaryEvent}
+        data-location="cta-section"
+      >
+        {primaryLabel}
+      </a>
+      {secondaryLabel && secondaryHref && (
+        <a
+          href={secondaryHref}
+          class:list={[
+            "inline-flex items-center justify-center px-8 py-3 rounded-lg font-medium transition-colors",
+            secondaryClass,
+          ]}
+        >
+          {secondaryLabel}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

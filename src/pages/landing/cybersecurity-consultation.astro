@@ -1,0 +1,97 @@
+---
+import LandingPageLayout from "../../layouts/LandingPageLayout.astro";
+import LeadForm from "../../components/shared/LeadForm.astro";
+import FAQ from "../../components/shared/FAQ.astro";
+import { siteConfig } from "../../data/site";
+import { cybersecurityFaqs } from "../../data/faqs";
+
+const site = siteConfig.cognexa;
+const sura = siteConfig.surakshitam;
+---
+
+<LandingPageLayout
+  title="Free Cybersecurity Consultation — CogNexa"
+  description="Book a free cybersecurity consultation with CogNexa. We review your current setup, identify risks, and recommend practical next steps."
+>
+  <section class="py-12 md:py-20 bg-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Left -->
+        <div>
+          <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-3">Free Offer</p>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-5 text-balance">
+            Get a Free Cybersecurity Consultation
+          </h1>
+          <p class="text-slate-300 leading-relaxed mb-6">
+            Our security experts will review your current setup, identify your highest-risk areas, and suggest practical next steps — at no cost and with no commitment.
+          </p>
+
+          <ul class="space-y-3 mb-8">
+            {[
+              "Network and firewall assessment",
+              "Review of current security tools and gaps",
+              "Risk-prioritized recommendations",
+              "Clear roadmap for next steps",
+            ].map((b) => (
+              <li class="flex items-start gap-3 text-slate-300 text-sm">
+                <span class="text-cyan-400 mt-0.5 shrink-0">✓</span>{b}
+              </li>
+            ))}
+          </ul>
+
+          <div class="rounded-xl bg-slate-800 border border-slate-700 p-5 mb-6">
+            <p class="text-sm font-semibold text-white mb-3">What you get:</p>
+            <ul class="space-y-1.5 text-sm text-slate-400">
+              <li>✓ 45-minute discovery call with a security specialist</li>
+              <li>✓ Written summary of findings and recommendations</li>
+              <li>✓ No hard sell — honest, practical advice</li>
+              <li>✓ Response within 24 hours</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 text-sm">
+            <a href={`tel:${site.phoneRaw}`} class="flex items-center gap-2 text-slate-400 hover:text-white" data-event="phone_click" data-location="landing-cybersecurity">
+              📞 {site.phone}
+            </a>
+            <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-400 hover:text-white" data-event="whatsapp_click" data-location="landing-cybersecurity">
+              💬 WhatsApp Us
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div>
+          <LeadForm
+            title="Book Free Consultation"
+            subtitle="We will get back to you within 24 hours."
+            services={["Managed Firewall", "Vulnerability Assessment", "Penetration Testing", "Web Application Firewall", "Enterprise VPN", "Network Monitoring", "Full Cybersecurity Assessment"]}
+            action="/api/lead"
+            thankYouUrl="/thank-you/"
+            variant="dark"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust signals -->
+  <section class="py-10 bg-slate-950 border-y border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: "7", label: "Security Products" },
+          { value: "10+", label: "Years Experience" },
+          { value: "24/7", label: "Support" },
+          { value: "Free", label: "Initial Consultation" },
+        ].map((t) => (
+          <div>
+            <p class="text-2xl font-bold text-cyan-400">{t.value}</p>
+            <p class="text-xs text-slate-500 mt-1">{t.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={cybersecurityFaqs} variant="dark" title="Common Questions" />
+</LandingPageLayout>

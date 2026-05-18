@@ -1,0 +1,68 @@
+---
+interface RelatedItem {
+  name: string;
+  summary: string;
+  href: string;
+}
+
+interface Props {
+  title?: string;
+  items: RelatedItem[];
+  variant?: "light" | "dark";
+}
+
+const {
+  title = "Related Services",
+  items,
+  variant = "light",
+} = Astro.props;
+
+const isDark = variant === "dark";
+---
+
+{
+  items.length > 0 && (
+    <section class:list={["py-14", isDark ? "bg-slate-900" : "bg-white"]}>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class:list={[
+            "text-xl font-bold mb-6",
+            isDark ? "text-white" : "text-slate-900",
+          ]}
+        >
+          {title}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {items.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "group block rounded-xl border p-5 transition-all hover:shadow-md",
+                isDark
+                  ? "bg-slate-800 border-slate-700 hover:border-slate-600"
+                  : "bg-slate-50 border-slate-200 hover:border-blue-300",
+              ]}
+            >
+              <h3
+                class:list={[
+                  "font-semibold mb-1 group-hover:underline",
+                  isDark ? "text-cyan-400" : "text-blue-600",
+                ]}
+              >
+                {item.name}
+              </h3>
+              <p
+                class:list={[
+                  "text-sm",
+                  isDark ? "text-slate-400" : "text-slate-600",
+                ]}
+              >
+                {item.summary}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

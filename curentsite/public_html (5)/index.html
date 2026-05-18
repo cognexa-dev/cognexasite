@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CogNexa Technologies - Advanced Cybersecurity & Network Solutions | Intelligence Connected</title>
+    <meta name="description" content="Enterprise cybersecurity, data management, and AI automation solutions. Get a free security audit. 24/7 support. Call +91 98989 31509">
+    <meta name="keywords" content="cybersecurity, firewall, data management, AI automation, penetration testing, vulnerability scanning, network security">
+    <link rel="canonical" href="https://cognexa.in/">
+    <meta name="robots" content="index,follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cognexa.in/">
+    <meta property="og:title" content="CogNexa Technologies - Intelligence Connected">
+    <meta property="og:description" content="Transform your digital security with enterprise-grade cybersecurity solutions">
+    <meta property="og:image" content="https://cognexa.in/cognexa-logo-final-small.webp">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CogNexa Technologies - Intelligence Connected">
+    <meta name="twitter:description" content="Transform your digital security with enterprise-grade cybersecurity solutions">
+    <meta name="twitter:image" content="https://cognexa.in/cognexa-logo-final-small.webp">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "CogNexa Technologies",
+          "url": "https://cognexa.in/",
+          "logo": "https://cognexa.in/cognexa-logo-final-small.webp",
+          "telephone": "+91 98989 31509",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91 98989 31509",
+              "contactType": "sales",
+              "availableLanguage": ["en"]
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "CogNexa Technologies",
+          "url": "https://cognexa.in/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "CogNexa Technologies - Advanced Cybersecurity & Network Solutions",
+          "url": "https://cognexa.in/",
+          "isPartOf": {"@type": "WebSite", "url": "https://cognexa.in/"}
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-94WKX6TQQF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-94WKX6TQQF');
+    </script>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Page-Specific Styles -->
+    <style>
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            font-weight: 900;
+        }
+
+        .hero-tagline {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--green);
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .trust-badge span {
+            font-size: 1.5rem;
+        }
+
+        .hero-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(203, 32, 60, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--burgundy);
+            box-shadow: 0 10px 30px rgba(203, 32, 60, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--burgundy), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(203, 32, 60, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--burgundy), var(--gold), var(--green));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--burgundy);
+            box-shadow: 0 20px 50px rgba(203, 32, 60, 0.3);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 8rem 0;
+            background: rgba(26, 31, 78, 0.1);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(203, 32, 60, 0.1), rgba(245, 186, 21, 0.1));
+            border-top: 1px solid rgba(203, 32, 60, 0.3);
+            border-bottom: 1px solid rgba(203, 32, 60, 0.3);
+        }
+
+        .cta-banner-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-banner h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--burgundy), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-banner p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(203, 32, 60, 0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .contact-details a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero {
+                padding-top: 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.5rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+                min-height: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            .hero-cta-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-cta-group .cta-btn,
+            .hero-cta-group .cta-btn-secondary {
+                width: 100%;
+            }
+            
+            .hero-visual {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .service-icon {
+                font-size: 3rem;
+            }
+            
+            .hero-visual {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-banner h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-banner p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and backgrounds loaded via common.js -->
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Protect Your Digital Assets</h1>
+                    <p class="hero-tagline">Intelligence Connected</p>
+                    <p class="hero-description">
+                        Enterprise-grade cybersecurity, data management, AI automation, and intelligent 
+                        knowledge management solutions. Secure your business with 24/7 monitoring, advanced 
+                        threat protection, and let Vidya AI answer your employees' policy questions instantly. 
+                        Get started with a free consultation.
+                    </p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="tel:+919898931509" class="cta-btn pulse-cta">📞 Call +91 98989 31509</a>
+                        <a href="#contact" class="cta-btn-secondary">Get Free Security Audit</a>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <span>✓</span>
+                            <div>24/7 Support</div>
+                        </div>
+                        <div class="trust-badge">
+                            <span>✓</span>
+                            <div>10,000+ Projects</div>
+                        </div>
+                        <div class="trust-badge">
+                            <span>✓</span>
+                            <div>Enterprise Grade</div>
+                        </div>
+                        <div class="trust-badge">
+                            <span>✓</span>
+                            <div>Free Consultation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Threat Prevention Rate</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Security Monitoring</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Successful Projects</div>
+                    </div>
+                    <div class="stat-card fade-in">
+                        <div class="stat-number">&lt;15m</div>
+                        <div class="stat-label">Response Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Our Solutions</h2>
+                <p class="section-subtitle">Comprehensive IT security and automation for modern enterprises</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Cybersecurity Suite</h3>
+                    <p>Complete protection with our Surakshitam platform - enterprise-grade security solutions</p>
+                    <ul class="service-features">
+                        <li>Managed Firewall Solutions (Kavach)</li>
+                        <li>Vulnerability Scanning (Durg)</li>
+                        <li>Penetration Testing (Shastra)</li>
+                        <li>24/7 Security Monitoring</li>
+                        <li>Incident Response & Recovery</li>
+                    </ul>
+                    <a href="cybersecurity.html" class="cta-btn-secondary">Learn More →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🗃️</div>
+                    <h3>Data Management</h3>
+                    <p>Enterprise-grade solutions for data accuracy, efficiency, and compliance</p>
+                    <ul class="service-features">
+                        <li>Master Data Management (MDM)</li>
+                        <li>Data De-duplication & Enrichment</li>
+                        <li>Item Code Consolidation</li>
+                        <li>10,000+ Successful Data Cleanups</li>
+                        <li>Compliance & Governance</li>
+                    </ul>
+                    <a href="data-management.html" class="cta-btn-secondary">Learn More →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI & Automation</h3>
+                    <p>Intelligent automation powered by our Aurobit platform</p>
+                    <ul class="service-features">
+                        <li>Automated Incident Management</li>
+                        <li>Smart Runbook Automation</li>
+                        <li>Predictive Analytics & AIOps</li>
+                        <li>Intelligent Virtual Assistants</li>
+                        <li>Process Optimization</li>
+                    </ul>
+                    <a href="ai-automation.html" class="cta-btn-secondary">Learn More →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">📚</div>
+                    <h3>Vidya AI Knowledge Base</h3>
+                    <p>AI-powered assistant for policies, SOPs & circulars - Natural language queries with local LLM</p>
+                    <ul class="service-features">
+                        <li>Ask Questions in Natural Language</li>
+                        <li>100% Data Privacy (Local LLM)</li>
+                        <li>Multi-Language Support</li>
+                        <li>70% Reduction in HR Queries</li>
+                        <li>Instant Policy Answers 24/7</li>
+                    </ul>
+                    <a href="vidya-ai.html" class="cta-btn-secondary">Learn More →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">💻</div>
+                    <h3>Custom Development</h3>
+                    <p>Tailored software solutions and enterprise integrations</p>
+                    <ul class="service-features">
+                        <li>Custom Application Development</li>
+                        <li>ERP/CRM Integration Services</li>
+                        <li>Cloud Solutions Deployment</li>
+                        <li>API Development & Integration</li>
+                        <li>Full Lifecycle Support</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn-secondary">Get Quote →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎯</div>
+                    <h3>IT Consulting & Strategy</h3>
+                    <p>Expert guidance for digital transformation and technology roadmap planning</p>
+                    <ul class="service-features">
+                        <li>IT Infrastructure Assessment</li>
+                        <li>Technology Stack Evaluation</li>
+                        <li>Digital Transformation Planning</li>
+                        <li>Cost Optimization Analysis</li>
+                        <li>Vendor Selection & Management</li>
+                    </ul>
+                    <a href="#contact" class="cta-btn-secondary">Get Quote →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Why Choose CogNexa</h2>
+                <p class="section-subtitle">Your trusted partner in digital transformation</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Rapid Response</h3>
+                    <p>15-minute average response time for critical security incidents</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Proven Track Record</h3>
+                    <p>10,000+ successful projects delivered with 99% client satisfaction</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade encryption and compliance with industry standards</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">💼</div>
+                    <h3>Expert Team</h3>
+                    <p>Certified security professionals with 15+ years experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vidya AI Highlight Section -->
+    <section style="padding: 4rem 0; background: linear-gradient(135deg, rgba(245, 186, 21, 0.1), rgba(11, 161, 75, 0.1));">
+        <div class="container">
+            <div style="max-width: 1000px; margin: 0 auto; background: rgba(26, 31, 78, 0.4); padding: 3rem; border-radius: 20px; border: 2px solid #f5ba15;">
+                <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: center;">
+                    <div style="font-size: 5rem; line-height: 1;">📚</div>
+                    <div>
+                        <h3 style="font-size: 2rem; color: #f5ba15; margin-bottom: 0.5rem; line-height: 1.2;">NEW: Vidya AI Knowledge Base</h3>
+                        <p style="font-size: 1.2rem; color: rgba(255,255,255,0.85); margin-bottom: 0; line-height: 1.5;">
+                            Transform your policies & SOPs into an AI assistant. Employees ask questions in natural language, 
+                            get instant answers. 100% private with local LLM. <strong style="color: #0ba14b;">70% reduction in HR queries.</strong>
+                        </p>
+                    </div>
+                    <div style="min-width: 180px;">
+                        <a href="vidya-ai.html" class="cta-btn" style="white-space: nowrap; font-size: 1.1rem; display: block; text-align: center;">
+                            Explore Vidya AI →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-banner-content">
+                <h2>Ready to Secure Your Business?</h2>
+                <p>Get a FREE security audit and discover vulnerabilities before hackers do. 
+                   No obligation, no credit card required.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+919898931509" class="cta-btn pulse-cta">📞 Call +91 98989 31509</a>
+                    <a href="/cdn-cgi/l/email-protection#790a18151c0a391a161e171c0118571017" class="cta-btn-secondary">✉️ Email Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss how we can protect and transform your business</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <a href="tel:+919898931509">+91 98989 31509</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="/cdn-cgi/l/email-protection#5a293b363f291a39353d343f223b743334"><span class="__cf_email__" data-cfemail="90e3f1fcf5e3d0f3fff7fef5e8f1bef9fe">[email&#160;protected]</span></a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Website</h4>
+                            <a href="https://cognexa.in" target="_blank">cognexa.in</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p style="color: rgba(255,255,255,0.8)">24/7 Emergency Support Available</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info fade-in">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--gold);">Schedule a Free Consultation</h3>
+                    <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
+                        Get expert advice on securing your infrastructure. Our team will assess your 
+                        needs and provide a customized solution - completely free.
+                    </p>
+                    <div style="margin-bottom: 1rem;">
+                        <strong style="color: var(--gold);">What You'll Get:</strong>
+                    </div>
+                    <ul class="service-features" style="margin-bottom: 2rem;">
+                        <li>Comprehensive Security Assessment</li>
+                        <li>Vulnerability Analysis Report</li>
+                        <li>Customized Solution Roadmap</li>
+                        <li>Cost-Benefit Analysis</li>
+                        <li>Implementation Timeline</li>
+                    </ul>
+                    <a href="tel:+919898931509" class="cta-btn" style="width: 100%; text-align: center;">
+                        📞 Schedule Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer loaded via common.js -->
+
+    <!-- External JavaScript -->
+    <script src="common.js"></script>
+</body>
+</html>

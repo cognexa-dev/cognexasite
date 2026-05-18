@@ -1,0 +1,176 @@
+---
+import { siteConfig } from "../../data/site";
+import { cognexaServices } from "../../data/services";
+
+const site = siteConfig.cognexa;
+const sura = siteConfig.surakshitam;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a
+          href="/"
+          class="inline-block font-bold text-xl text-white mb-3"
+          aria-label="CogNexa — Home"
+        >
+          <span class="text-cyan-400">Cog</span>Nexa
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">
+          IT, cybersecurity, AI automation, and data management solutions for businesses across India.
+        </p>
+        <div class="space-y-1">
+          <a
+            href={`tel:${site.phoneRaw}`}
+            class="flex items-center gap-2 hover:text-white transition-colors"
+            data-event="phone_click"
+            data-location="footer"
+          >
+            📞 {site.phone}
+          </a>
+          <a
+            href={`mailto:${site.email}`}
+            class="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            ✉️ {site.email}
+          </a>
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:text-white transition-colors"
+            data-event="whatsapp_click"
+            data-location="footer"
+          >
+            💬 WhatsApp Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="font-semibold text-white mb-3">Services</h3>
+        <ul class="space-y-1.5">
+          {
+            cognexaServices.map((s) => (
+              <li>
+                <a
+                  href={`/services/${s.slug}/`}
+                  class="hover:text-white transition-colors"
+                >
+                  {s.shortName}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Surakshitam products -->
+      <div>
+        <h3 class="font-semibold text-white mb-3">
+          <a
+            href={sura.domain}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-cyan-400 transition-colors"
+          >
+            Surakshitam ↗
+          </a>
+        </h3>
+        <ul class="space-y-1.5">
+          <li>
+            <a
+              href={`${sura.domain}/kavach-managed-firewall/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+            >
+              Kavach — Managed Firewall
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${sura.domain}/durg-vulnerability-scanner/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+            >
+              Durg — Vulnerability Scanner
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${sura.domain}/shastra-penetration-testing/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+            >
+              Shastra — Pen Testing
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${sura.domain}/raksha-web-application-firewall/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+            >
+              Raksha — WAF
+            </a>
+          </li>
+          <li>
+            <a
+              href={sura.domain}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-400 hover:text-cyan-300 transition-colors font-medium"
+            >
+              View All →
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h3 class="font-semibold text-white mb-3">Quick Links</h3>
+        <ul class="space-y-1.5">
+          <li>
+            <a href="/about/" class="hover:text-white transition-colors">About</a>
+          </li>
+          <li>
+            <a href="/industries/" class="hover:text-white transition-colors">Industries</a>
+          </li>
+          <li>
+            <a href="/contact/" class="hover:text-white transition-colors">Contact</a>
+          </li>
+          <li>
+            <a href="/privacy-policy/" class="hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a href="/terms/" class="hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-10 pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-600"
+    >
+      <p>
+        © {currentYear} CogNexa Technologies. All rights reserved.
+      </p>
+      <p>
+        Surakshitam is a cybersecurity suite by CogNexa Technologies.
+      </p>
+    </div>
+  </div>
+</footer>

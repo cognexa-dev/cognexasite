@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidya AI - Enterprise Knowledge Base with Local LLM | CogNexa</title>
+    <meta name="description" content="AI-powered knowledge base for policies, SOPs, and circulars. Natural language queries with local LLM. 70% reduction in admin queries. Free demo available.">
+    <meta name="keywords" content="ai knowledge base, enterprise chatbot, local llm, policy management, sop software, employee self service">
+    <link rel="canonical" href="https://cognexa.in/vidya-ai.html">
+    <meta name="robots" content="index,follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cognexa.in/vidya-ai.html">
+    <meta property="og:title" content="Vidya AI - Enterprise Knowledge Base with Local LLM | CogNexa">
+    <meta property="og:description" content="AI-powered knowledge base for policies, SOPs and circulars with natural language queries and a local LLM.">
+    <meta property="og:image" content="https://cognexa.in/cognexa-logo-final-small.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vidya AI - Enterprise Knowledge Base with Local LLM | CogNexa">
+    <meta name="twitter:description" content="AI-powered knowledge base for policies, SOPs and circulars with natural language queries and a local LLM.">
+    <meta name="twitter:image" content="https://cognexa.in/cognexa-logo-final-small.webp">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "CogNexa Technologies",
+          "url": "https://cognexa.in/",
+          "logo": "https://cognexa.in/cognexa-logo-final-small.webp",
+          "telephone": "+91 98989 31509"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Vidya AI",
+          "url": "https://cognexa.in/vidya-ai.html",
+          "isPartOf": {"@type": "WebSite", "url": "https://cognexa.in/"}
+        }
+      ]
+    }
+    </script>
+
+     <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-94WKX6TQQF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-94WKX6TQQF');
+    </script>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a1f4e;
+            --burgundy: #cb203c;
+            --gold: #f5ba15;
+            --green: #0ba14b;
+            --orange: #ff6b35;
+            --dark-bg: #0a0a0a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            background: var(--dark-bg);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+      /**  header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 2px solid rgba(203, 32, 60, 0.3);
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }**/
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--burgundy), var(--gold));
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(203, 32, 60, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(203, 32, 60, 0.4); }
+            50% { box-shadow: 0 5px 30px rgba(203, 32, 60, 0.8); }
+        }
+
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 6rem;
+            background: linear-gradient(135deg, rgba(26, 31, 78, 0.4), rgba(245, 186, 21, 0.1));
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .hero-tagline {
+            font-size: 1.8rem;
+            color: var(--green);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .demo-form {
+            background: rgba(26, 31, 78, 0.5);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+        }
+
+        .demo-form h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--green), var(--gold));
+            padding: 1.2rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(11, 161, 75, 0.4);
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .problem-section {
+            padding: 6rem 0;
+            background: rgba(203, 32, 60, 0.05);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: rgba(26, 31, 78, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--burgundy);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-section {
+            padding: 6rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(26, 31, 78, 0.3);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(245, 186, 21, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(245, 186, 21, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .use-cases {
+            padding: 6rem 0;
+            background: rgba(11, 161, 75, 0.05);
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .use-case-card {
+            background: rgba(26, 31, 78, 0.4);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--green);
+        }
+
+        .demo-example {
+            background: rgba(10, 10, 10, 0.5);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-family: monospace;
+            border-left: 3px solid var(--gold);
+        }
+
+        .roi-section {
+            padding: 6rem 0;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .roi-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(26, 31, 78, 0.3);
+            border-radius: 15px;
+        }
+
+        .roi-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(203, 32, 60, 0.1), rgba(245, 186, 21, 0.1));
+        }
+
+        .pricing-card {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: rgba(26, 31, 78, 0.4);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+        }
+
+        .price {
+            font-size: 4rem;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .price-detail {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .final-cta {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid, .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .roi-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            header nav ul {
+                display: none !important;
+            }
+            
+            header nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .mobile-menu-note {
+                display: block;
+                text-align: center;
+                color: rgba(255,255,255,0.7);
+                font-size: 0.9rem;
+            }
+        }
+        
+        .mobile-menu-note {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>📚 Vidya AI</h1>
+                    <p class="hero-tagline">Your Policies, Instantly Searchable</p>
+                    <p>
+                        Transform thousands of policy documents, SOPs, and circulars into an intelligent 
+                        AI assistant. Employees ask questions in natural language, get instant accurate 
+                        answers - all powered by secure local LLM technology.
+                    </p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="tel:+919898931509" class="cta-btn">Get Free Demo</a>
+                        <a href="#pricing" class="cta-btn" style="background: transparent; border: 2px solid var(--gold);">
+                            See Pricing
+                        </a>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="badge">
+                            <span>✓</span>
+                            <div>100% Data Privacy</div>
+                        </div>
+                        <div class="badge">
+                            <span>✓</span>
+                            <div>Local LLM</div>
+                        </div>
+                        <div class="badge">
+                            <span>✓</span>
+                            <div>Multi-Language</div>
+                        </div>
+                        <div class="badge">
+                            <span>✓</span>
+                            <div>70% Fewer Queries</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-form">
+                    <h3>🎯 Get Your Free Demo</h3>
+                    <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
+                        See Vidya AI in action. No credit card required.
+                    </p>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" required placeholder="Your Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Company Name *</label>
+                            <input type="text" required placeholder="Your Company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" required placeholder="you@company.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input type="tel" required placeholder="+91 98989 31509">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Company Size</label>
+                            <select>
+                                <option>50-100 employees</option>
+                                <option>100-500 employees</option>
+                                <option>500-1000 employees</option>
+                                <option>1000+ employees</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Primary Use Case</label>
+                            <select>
+                                <option>HR Policies</option>
+                                <option>IT Documentation</option>
+                                <option>Safety SOPs</option>
+                                <option>Compliance & Legal</option>
+                                <option>Operations Manual</option>
+                                <option>All of the above</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Schedule My Demo →</button>
+                    </form>
+                    
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6); text-align: center;">
+                        We'll contact you within 2 hours
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">The Problem We Solve</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 3rem;">
+                Does this sound familiar?
+            </p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😫</div>
+                    <h3 style="color: var(--burgundy); margin-bottom: 1rem;">Overwhelmed HR Team</h3>
+                    <p>HR spends 40% of their time answering the same basic policy questions over and over</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">📚</div>
+                    <h3 style="color: var(--burgundy); margin-bottom: 1rem;">Document Chaos</h3>
+                    <p>Policies buried in SharePoint, emails, PDFs. Employees can't find what they need</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3 style="color: var(--burgundy); margin-bottom: 1rem;">Slow Responses</h3>
+                    <p>Employees wait hours or days for simple answers, reducing productivity</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">🔒</div>
+                    <h3 style="color: var(--burgundy); margin-bottom: 1rem;">Compliance Risks</h3>
+                    <p>Outdated information, inconsistent answers, no audit trail of who accessed what</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">🌐</div>
+                    <h3 style="color: var(--burgundy); margin-bottom: 1rem;">Cloud Privacy Concerns</h3>
+                    <p>Sensitive policies sent to external AI services - data privacy nightmare</p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">💰</div>
+                    <h3 style="color: var(--burgundy); margin-bottom: 1rem;">Hidden Costs</h3>
+                    <p>Every basic query costs 15 minutes. Multiply by 1000 employees = massive waste</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">How Vidya AI Works</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Upload your documents once. Get instant answers forever. Completely private.
+            </p>
+
+            <div class="demo-example">
+                <strong style="color: var(--gold);">Employee asks:</strong>
+                <div style="margin: 1rem 0; color: rgba(255,255,255,0.9);">
+                    "मुझे दीवाली की छुट्टी कितने दिन मिलेंगी?" (How many holidays do I get for Diwali?)
+                </div>
+                
+                <strong style="color: var(--green);">Vidya AI responds instantly:</strong>
+                <div style="margin: 1rem 0; color: rgba(255,255,255,0.9);">
+                    "As per the Leave Policy (Section 4.2), you are entitled to 3 days of paid leave 
+                    for Diwali festival. You need to apply at least 7 days in advance through the HR portal."
+                </div>
+                
+                <div style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                    Source: Leave_Policy_2025.pdf, Page 12
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Natural Language Queries</h3>
+                    <p>Ask questions like you're talking to a colleague. English, Hindi, or regional languages.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Local LLM = 100% Privacy</h3>
+                    <p>AI runs on YOUR servers. Zero data leaves your network. Perfect for sensitive policies.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Multi-Document Intelligence</h3>
+                    <p>Indexes PDFs, Word docs, SharePoint, wikis. Understands relationships between documents.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Instant Answers</h3>
+                    <p>Sub-second response times. No more waiting for HR to respond to emails.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Context-Aware</h3>
+                    <p>Knows user's department, role, location. Provides personalized, relevant answers.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Analytics Dashboard</h3>
+                    <p>See what employees are asking. Identify knowledge gaps. Update policies proactively.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Auto-Updates</h3>
+                    <p>Upload new policy version. Vidya AI automatically indexes. Everyone gets latest info.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Multi-Platform</h3>
+                    <p>Web, mobile app, Slack, Teams, email. Access knowledge anywhere, anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-cases">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Real-World Use Cases</h2>
+            
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <h3 style="color: var(--green); font-size: 1.8rem; margin-bottom: 1rem;">👥 HR Policies</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Questions employees ask:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>"How much maternity leave am I entitled to?"</li>
+                        <li>"What's the process to apply for WFH?"</li>
+                        <li>"Do I get compensatory off for weekend work?"</li>
+                        <li>"How does the referral bonus program work?"</li>
+                    </ul>
+                    <p style="color: var(--gold);"><strong>Result:</strong> 70% reduction in HR queries, instant employee satisfaction</p>
+                </div>
+
+                <div class="use-case-card">
+                    <h3 style="color: var(--green); font-size: 1.8rem; margin-bottom: 1rem;">💻 IT Documentation</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Questions employees ask:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>"How do I get access to the CRM system?"</li>
+                        <li>"What's the VPN configuration for remote work?"</li>
+                        <li>"Password reset procedure for Windows?"</li>
+                        <li>"Software installation approval process?"</li>
+                    </ul>
+                    <p style="color: var(--gold);"><strong>Result:</strong> 60% fewer IT support tickets, self-service resolution</p>
+                </div>
+
+                <div class="use-case-card">
+                    <h3 style="color: var(--green); font-size: 1.8rem; margin-bottom: 1rem;">🏭 Safety & Operations</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Questions employees ask:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>"Fire evacuation procedure for Building 3?"</li>
+                        <li>"PPE requirements for the production floor?"</li>
+                        <li>"Incident reporting process?"</li>
+                        <li>"Machine maintenance checklist?"</li>
+                    </ul>
+                    <p style="color: var(--gold);"><strong>Result:</strong> Zero safety compliance gaps, instant SOP access</p>
+                </div>
+
+                <div class="use-case-card">
+                    <h3 style="color: var(--green); font-size: 1.8rem; margin-bottom: 1rem;">⚖️ Compliance & Legal</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Questions employees ask:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>"What's our data retention policy?"</li>
+                        <li>"GDPR compliance requirements for EU customers?"</li>
+                        <li>"Vendor contract approval workflow?"</li>
+                        <li>"Export control regulations?"</li>
+                    </ul>
+                    <p style="color: var(--gold);"><strong>Result:</strong> 100% audit readiness, zero compliance violations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roi-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Calculate Your ROI</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 3rem;">
+                Real savings from a 500-employee company
+            </p>
+
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <div class="roi-number">₹42L</div>
+                    <p>Annual savings in HR time (70% query reduction)</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-number">₹28L</div>
+                    <p>Productivity gains from instant answers</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-number">₹15L</div>
+                    <p>Reduced training costs with self-service</p>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-number">₹85L</div>
+                    <p><strong>Total Annual ROI</strong></p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(11, 161, 75, 0.1); border-radius: 15px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <p style="font-size: 1.3rem; color: var(--green);">
+                    <strong>Investment: ₹10.2L per year</strong>
+                </p>
+                <p style="font-size: 2rem; margin-top: 1rem; color: var(--gold);">
+                    <strong>ROI: 734%</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Simple, Transparent Pricing</h2>
+            
+            <div class="pricing-card">
+                <div style="text-align: center;">
+                    <div class="price">₹60,000<span style="font-size: 1.5rem; color: rgba(255,255,255,0.7);">/month</span></div>
+                    <div class="price-detail">Everything you need to get started</div>
+                </div>
+
+                <ul class="pricing-features">
+                    <li>Local LLM deployment on your infrastructure</li>
+                    <li>Up to 10,000 documents indexed</li>
+                    <li>Unlimited queries from unlimited users</li>
+                    <li>Web interface + mobile app</li>
+                    <li>Slack & Microsoft Teams integration</li>
+                    <li>Multi-language support (English + Hindi + 1 regional)</li>
+                    <li>Analytics dashboard with query insights</li>
+                    <li>Version control & document tracking</li>
+                    <li>Role-based access control</li>
+                    <li>Email & phone support</li>
+                </ul>
+
+                <div style="background: rgba(245, 186, 21, 0.1); padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                    <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 1.3rem;">Implementation Package</h4>
+                    <p style="margin-bottom: 0.5rem;"><strong>One-time: ₹2,00,000</strong></p>
+                    <p style="color: rgba(255,255,255,0.8);">Includes: Infrastructure setup, data migration, employee training, customization, and go-live support</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="tel:+919898931509" class="cta-btn" style="font-size: 1.3rem; padding: 1.2rem 3rem; display: inline-block;">
+                        Get Started Today
+                    </a>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.5rem; color: rgba(255,255,255,0.6);">
+                    Need more documents or custom features? Call us for enterprise pricing.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--burgundy), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                See Vidya AI in Action
+            </h2>
+            <p style="font-size: 1.4rem; margin-bottom: 3rem; color: rgba(255,255,255,0.85); max-width: 700px; margin-left: auto; margin-right: auto;">
+                Book a free personalized demo. We'll show you exactly how Vidya AI can transform 
+                your policy management and save ₹50L+ annually.
+            </p>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:+919898931509" class="cta-btn" style="font-size: 1.5rem; padding: 1.5rem 4rem; display: inline-block;">
+                    📞 Call +91 98989 31509
+                </a>
+                <a href="/cdn-cgi/l/email-protection#6a190b060f192a09050d040f120b440304" class="cta-btn" style="font-size: 1.5rem; padding: 1.5rem 4rem; display: inline-block; background: linear-gradient(135deg, var(--green), var(--gold));">
+                    ✉️ Email for Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <script src="common.js"></script>
+</body>
+</html>

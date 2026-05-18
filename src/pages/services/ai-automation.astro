@@ -1,0 +1,108 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import CTASection from "../../components/shared/CTASection.astro";
+import FAQ from "../../components/shared/FAQ.astro";
+import RelatedServices from "../../components/shared/RelatedServices.astro";
+import Breadcrumbs from "../../components/shared/Breadcrumbs.astro";
+import { siteConfig } from "../../data/site";
+import { cognexaServices } from "../../data/services";
+import type { FAQ as FAQType } from "../../data/faqs";
+
+const site = siteConfig.cognexa;
+
+const related = cognexaServices
+  .filter((s) => !["ai-automation"].includes(s.slug))
+  .slice(0, 3)
+  .map((s) => ({ name: s.name, summary: s.summary, href: `/services/${s.slug}/` }));
+
+const faqs: FAQType[] = [
+  { question: "What kinds of processes can you automate?", answer: "We can automate document processing, approval workflows, data entry, reporting, email triage, HR onboarding, inventory checks, and many other repetitive manual tasks. We start by mapping your current process and identifying the highest-impact automation opportunities." },
+  { question: "Do we need cloud AI or can we keep data on-premise?", answer: "We can deploy AI solutions entirely on your own servers — no data leaves your infrastructure. This is particularly relevant for organizations handling sensitive data, government records, or confidential business information. Vidya AI is our flagship on-premise AI product." },
+  { question: "How long does an automation project take?", answer: "Simple workflow automations can be deployed in 2–4 weeks. More complex AI integrations typically take 6–12 weeks. We start with a scoped proof of concept so you see value quickly before committing to full deployment." },
+];
+
+const useCases = [
+  { title: "Document Intelligence", desc: "Extract, classify, and route information from invoices, purchase orders, contracts, and forms — without manual data entry." },
+  { title: "Workflow Automation", desc: "Automate approval chains, notifications, escalations, and status updates across teams and systems." },
+  { title: "AI Chatbots and Assistants", desc: "Deploy internal AI assistants trained on your SOPs, manuals, and product data for staff self-service." },
+  { title: "Report Automation", desc: "Generate scheduled reports from your ERP or database automatically, eliminating manual extraction and formatting." },
+  { title: "Process Mining", desc: "Identify where time is wasted in your current processes before deciding what to automate." },
+  { title: "Local LLM Deployment", desc: "Deploy large language models on your servers for private, offline AI capabilities. No subscription fees, no data exposure." },
+];
+---
+
+<MarketingLayout
+  title="AI & Business Automation Services in India | CogNexa"
+  description="AI automation, workflow automation, document intelligence, and local LLM deployment for Indian enterprises. Book a free AI consultation with CogNexa."
+>
+  <div class="bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <Breadcrumbs
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services/" },
+          { label: "AI & Automation" },
+        ]}
+        variant="dark"
+      />
+    </div>
+
+    <section class="pt-8 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-3">AI & Automation</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 text-balance">
+            AI & Business Automation Services
+          </h1>
+          <p class="text-lg text-slate-300 leading-relaxed mb-8">
+            CogNexa helps organizations identify automation opportunities and deploy AI solutions — from document intelligence and workflow automation to local LLM deployments that work privately on your own infrastructure.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact/" class="inline-flex items-center justify-center px-7 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors" data-event="cta_click" data-location="hero" data-service="AI Automation">
+              Book AI Consultation
+            </a>
+            <a href="/services/vidya-ai/" class="inline-flex items-center justify-center px-7 py-3 border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white rounded-lg transition-colors">
+              Explore Vidya AI
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">What we build</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {useCases.map((u) => (
+            <div class="rounded-xl bg-slate-800 border border-slate-700 p-6">
+              <h3 class="font-bold text-white mb-2">{u.title}</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">{u.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-slate-900">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Private AI that runs on your servers</h2>
+        <p class="text-slate-300 mb-6">
+          Most AI tools send your data to external cloud services. CogNexa deploys AI models entirely on your own infrastructure — no recurring subscription, no data leaving your network.
+        </p>
+        <a href="/services/vidya-ai/" class="inline-flex items-center justify-center px-7 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors">
+          Learn About Vidya AI
+        </a>
+      </div>
+    </section>
+
+    <FAQ items={faqs} variant="dark" />
+    <RelatedServices title="Other Services" items={related} variant="dark" />
+    <CTASection
+      title="Ready to automate your business?"
+      description="Book a free AI consultation. We will identify your best automation opportunities and propose a practical starting point."
+      primaryLabel="Book Free Consultation"
+      primaryHref="/contact/"
+      variant="blue"
+    />
+  </div>
+</MarketingLayout>

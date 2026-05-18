@@ -1,0 +1,90 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import CTASection from "../components/shared/CTASection.astro";
+import Breadcrumbs from "../components/shared/Breadcrumbs.astro";
+import { siteConfig } from "../data/site";
+
+const site = siteConfig.cognexa;
+---
+
+<MarketingLayout
+  title="About CogNexa — IT, Cybersecurity & AI Company in India"
+  description="CogNexa is an IT, cybersecurity, and AI solutions company helping businesses in India secure, automate, and scale their digital operations."
+>
+  <div class="bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "About" }]} variant="dark" />
+    </div>
+
+    <section class="pt-8 pb-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">About CogNexa</h1>
+        <div class="prose prose-invert prose-lg max-w-none">
+          <p class="text-slate-300 leading-relaxed mb-6">
+            CogNexa is an IT, cybersecurity, AI, and data solutions company helping businesses and organizations in India strengthen their technology foundations.
+          </p>
+          <p class="text-slate-300 leading-relaxed mb-6">
+            We work with SMEs, enterprises, government departments, educational institutions, hospitals, and manufacturing companies — helping them secure their networks, clean and manage their data, deploy practical AI automation, and build custom software that fits their actual workflows.
+          </p>
+          <p class="text-slate-300 leading-relaxed mb-8">
+            Our cybersecurity work is delivered through Surakshitam — a focused suite of seven products covering managed firewall, vulnerability assessment, penetration testing, WAF, VPN, captive portal, and network monitoring.
+          </p>
+
+          <h2 class="text-2xl font-bold text-white mb-4">What we believe</h2>
+          <ul class="space-y-3 mb-8">
+            {[
+              "Technology should solve specific, real problems — not add complexity",
+              "Security is not optional for any organization, regardless of size",
+              "Good data is the foundation of every reliable business decision",
+              "Practical, local expertise is more valuable than generic global advice",
+              "Organizations deserve honest, vendor-neutral guidance",
+            ].map((b) => (
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-cyan-400 mt-0.5 shrink-0">→</span>{b}
+              </li>
+            ))}
+          </ul>
+
+          <h2 class="text-2xl font-bold text-white mb-4">Our capabilities</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {[
+              "OPNsense firewall deployment and management",
+              "Vulnerability assessment and penetration testing",
+              "Data cleansing and master data management",
+              "Local LLM and AI deployment (Vidya AI)",
+              "Business process automation",
+              "Custom software and portal development",
+              "Network monitoring and alerting",
+              "IT infrastructure consulting",
+            ].map((c) => (
+              <div class="flex items-center gap-2 text-slate-300 text-sm">
+                <span class="text-cyan-400 shrink-0">✓</span>{c}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-8 p-6 rounded-2xl bg-slate-800 border border-slate-700">
+          <p class="font-semibold text-white mb-1">Get in touch</p>
+          <p class="text-slate-400 text-sm mb-4">Ready to discuss how we can help your organization?</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/contact/" class="inline-flex items-center justify-center px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors text-sm">
+              Request Free Consultation
+            </a>
+            <a href={`tel:${site.phoneRaw}`} class="inline-flex items-center justify-center px-6 py-2.5 border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white rounded-lg transition-colors text-sm" data-event="phone_click" data-location="about">
+              {site.phone}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Let us help your organization"
+      description="Whether you need cybersecurity, cleaner data, AI automation, or custom software — we would be glad to help."
+      primaryLabel="Request Free Consultation"
+      primaryHref="/contact/"
+      variant="dark"
+    />
+  </div>
+</MarketingLayout>

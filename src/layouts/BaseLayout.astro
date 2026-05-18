@@ -1,0 +1,116 @@
+---
+import "../styles/global.css";
+import SEO from "../components/shared/SEO.astro";
+import { siteConfig } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  schema?: object | object[];
+}
+
+const { title, description, canonical, ogImage, noindex, schema } = Astro.props;
+const site = siteConfig.cognexa;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: site.domain,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: site.phone,
+    contactType: "sales",
+    availableLanguage: ["English", "Hindi"],
+  },
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      noindex={noindex}
+      schema={schema ? [orgSchema, ...(Array.isArray(schema) ? schema : [schema])] : [orgSchema]}
+    />
+
+    <!-- Google Tag Manager -->
+    {site.gtmId && (
+      <script is:inline define:vars={{ gtmId: site.gtmId }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer', gtmId);
+      </script>
+    )}
+
+    <!-- GA4 direct (if no GTM) -->
+    {!site.gtmId && site.ga4Id && (
+      <>
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4Id}`}
+        ></script>
+        <script is:inline define:vars={{ ga4Id: site.ga4Id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', ga4Id);
+        </script>
+      </>
+    )}
+  </head>
+  <body class="bg-slate-900 text-slate-100 font-sans antialiased">
+    <!-- GTM noscript -->
+    {site.gtmId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        ></iframe>
+      </noscript>
+    )}
+
+    <slot />
+
+    <!-- Event tracking -->
+    <script is:inline>
+      document.addEventListener("click", function (e) {
+        const el = e.target?.closest("[data-event]");
+        if (!el) return;
+        const event = el.dataset.event;
+        const location = el.dataset.location;
+        const service = el.dataset.service;
+        if (typeof gtag === "function" && event) {
+          gtag("event", event, { event_location: location, service_name: service });
+        }
+      });
+    </script>
+  </body>
+</html>

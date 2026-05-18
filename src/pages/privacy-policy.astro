@@ -1,0 +1,37 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import { siteConfig } from "../data/site";
+const site = siteConfig.cognexa;
+---
+<MarketingLayout
+  title="Privacy Policy | CogNexa"
+  description="CogNexa privacy policy — how we collect, use, and protect your information."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-slate-300">
+    <h1 class="text-3xl font-bold text-white mb-6">Privacy Policy</h1>
+    <p class="text-sm text-slate-500 mb-8">Last updated: May 2026</p>
+
+    <div class="space-y-8 text-sm leading-relaxed">
+      <section>
+        <h2 class="text-lg font-semibold text-white mb-2">Information We Collect</h2>
+        <p>When you submit a form on this website, we collect your name, phone number, email address, company name, and any message you provide. We also collect standard web analytics data (page views, referrer, browser) and UTM tracking parameters.</p>
+      </section>
+      <section>
+        <h2 class="text-lg font-semibold text-white mb-2">How We Use It</h2>
+        <p>Information submitted via forms is used solely to respond to your enquiry and provide the requested services. We do not sell or share your personal information with third parties for marketing purposes.</p>
+      </section>
+      <section>
+        <h2 class="text-lg font-semibold text-white mb-2">Analytics</h2>
+        <p>We use Google Analytics 4 to understand how visitors interact with this website. This collects anonymised usage data. You can opt out via your browser settings or Google's opt-out tools.</p>
+      </section>
+      <section>
+        <h2 class="text-lg font-semibold text-white mb-2">Data Security</h2>
+        <p>All data is transmitted over HTTPS. We take reasonable measures to protect the personal information you share with us.</p>
+      </section>
+      <section>
+        <h2 class="text-lg font-semibold text-white mb-2">Contact</h2>
+        <p>For any privacy-related questions, contact us at <a href={`mailto:${site.email}`} class="text-cyan-400 hover:underline">{site.email}</a>.</p>
+      </section>
+    </div>
+  </div>
+</MarketingLayout>

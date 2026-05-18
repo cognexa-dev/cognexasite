@@ -1,0 +1,137 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import CTASection from "../../components/shared/CTASection.astro";
+import FAQ from "../../components/shared/FAQ.astro";
+import RelatedServices from "../../components/shared/RelatedServices.astro";
+import Breadcrumbs from "../../components/shared/Breadcrumbs.astro";
+import LeadForm from "../../components/shared/LeadForm.astro";
+import { siteConfig } from "../../data/site";
+import { dataManagementFaqs } from "../../data/faqs";
+import { cognexaServices } from "../../data/services";
+
+const site = siteConfig.cognexa;
+
+const related = cognexaServices
+  .filter((s) => !["data-management"].includes(s.slug))
+  .slice(0, 3)
+  .map((s) => ({ name: s.name, summary: s.summary, href: `/services/${s.slug}/` }));
+
+const offerings = [
+  { title: "Data Cleansing", desc: "Remove duplicates, fix formatting errors, standardize values, and fill missing fields across your databases." },
+  { title: "Master Data Management", desc: "Create a single source of truth for customers, vendors, products, and employees across all your systems." },
+  { title: "Item Code Consolidation", desc: "Harmonize product codes, SKUs, and item masters for ERP migration, procurement, and reporting accuracy." },
+  { title: "Data Enrichment", desc: "Append missing information — contact details, categorization, geo data — from reliable sources." },
+  { title: "ERP Data Migration", desc: "Prepare and validate data before ERP go-live to reduce project risk and post-launch issues." },
+  { title: "Reporting & Dashboards", desc: "Build custom reports and dashboards on top of clean data for accurate decision-making." },
+];
+---
+
+<MarketingLayout
+  title="Enterprise Data Management Services in India | CogNexa"
+  description="Data cleansing, master data management, item code consolidation, and ERP data migration services. Get a free data quality assessment from CogNexa."
+>
+  <div class="bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <Breadcrumbs
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services/" },
+          { label: "Data Management" },
+        ]}
+        variant="dark"
+      />
+    </div>
+
+    <section class="pt-8 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-3">
+              Data Management
+            </p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 text-balance">
+              Data Management Services for Enterprise Organizations
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
+              Messy data costs your organization time and money every single day. CogNexa helps businesses clean, consolidate, and manage critical business data — so your ERP, CRM, and reporting systems reflect reality.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {["Eliminate duplicate and inconsistent records", "Faster, lower-risk ERP migrations", "Reliable reporting and dashboards", "Ongoing data quality monitoring"].map((b) => (
+                <li class="flex items-center gap-3 text-slate-300">
+                  <span class="text-cyan-400 shrink-0">✓</span>{b}
+                </li>
+              ))}
+            </ul>
+            <a href="/contact/" class="inline-flex items-center px-7 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors" data-event="cta_click" data-location="data-hero" data-service="Data Management">
+              Get Free Data Assessment
+            </a>
+          </div>
+          <div>
+            <LeadForm
+              title="Get Free Data Assessment"
+              subtitle="We will review your current data quality situation and suggest next steps."
+              services={["Data Management", "Master Data Management", "Data Cleansing", "ERP Data Migration", "Item Code Consolidation", "Reporting & Dashboards"]}
+              variant="dark"
+              compact={true}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offerings -->
+    <section class="py-16 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
+          What we handle
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {offerings.map((o) => (
+            <div class="rounded-xl bg-slate-800 border border-slate-700 p-6">
+              <h3 class="font-bold text-white mb-2">{o.title}</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">{o.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-16 bg-slate-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-10 text-center">
+          How we work
+        </h2>
+        <ol class="space-y-6">
+          {[
+            ["Discovery", "We assess your current data — volumes, sources, quality issues, business impact."],
+            ["Analysis", "We profile your data to quantify duplicates, errors, missing fields, and inconsistencies."],
+            ["Cleansing", "We clean and standardize your data in a staging environment, with your team validating results."],
+            ["Migration/Integration", "Cleaned data is loaded into your target system with full documentation."],
+            ["Ongoing Quality", "We set up monitoring rules so data quality doesn't degrade over time."],
+          ].map(([step, desc], i) => (
+            <li class="flex gap-5">
+              <div class="shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center mt-0.5">
+                {i + 1}
+              </div>
+              <div>
+                <p class="font-semibold text-white">{step}</p>
+                <p class="text-slate-400 text-sm mt-0.5">{desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <FAQ items={dataManagementFaqs} variant="dark" />
+    <RelatedServices title="Other Services" items={related} variant="dark" />
+    <CTASection
+      title="Messy data costs money every day."
+      description="Get a free data quality assessment. We will review your current setup and suggest practical next steps."
+      primaryLabel="Get Free Data Assessment"
+      primaryHref="/contact/"
+      variant="blue"
+    />
+  </div>
+</MarketingLayout>

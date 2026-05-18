@@ -1,0 +1,108 @@
+---
+export const prerender = true;
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import CTASection from "../../components/shared/CTASection.astro";
+import Breadcrumbs from "../../components/shared/Breadcrumbs.astro";
+import { industries } from "../../data/industries";
+import { siteConfig } from "../../data/site";
+
+export function getStaticPaths() {
+  return industries.map((ind) => ({
+    params: { slug: ind.slug },
+    props: { industry: ind },
+  }));
+}
+
+const { industry } = Astro.props;
+const sura = siteConfig.surakshitam;
+---
+
+<MarketingLayout
+  title={`${industry.name} IT & Cybersecurity Solutions | CogNexa`}
+  description={`CogNexa provides IT, cybersecurity, and data management solutions for the ${industry.name.toLowerCase()} sector. See our recommended services.`}
+>
+  <div class="bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <Breadcrumbs
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "Industries", href: "/industries/" },
+          { label: industry.name },
+        ]}
+        variant="dark"
+      />
+    </div>
+
+    <section class="pt-8 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <p class="text-sm font-semibold text-cyan-400 uppercase tracking-widest mb-3">
+            {industry.name}
+          </p>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-5 text-balance">
+            IT & Cybersecurity Solutions for {industry.name}
+          </h1>
+          <p class="text-lg text-slate-300">{industry.summary}</p>
+        </div>
+
+        <!-- Challenges -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-white mb-5">Common Challenges</h2>
+          <ul class="space-y-3">
+            {industry.challenges.map((c) => (
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-red-400 mt-0.5 shrink-0">✗</span>{c}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- CogNexa services -->
+          <div>
+            <h2 class="text-xl font-bold text-white mb-5">CogNexa Services</h2>
+            <div class="space-y-3">
+              {industry.cognexa.map((item) => (
+                <a
+                  href={`/services/${item.serviceSlug}/`}
+                  class="block rounded-xl border border-slate-700 bg-slate-800 p-4 hover:border-blue-600 transition-colors"
+                >
+                  <p class="font-semibold text-cyan-400">{item.label}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Surakshitam products -->
+          <div>
+            <h2 class="text-xl font-bold text-white mb-5">
+              <a href={sura.domain} target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">
+                Surakshitam Products ↗
+              </a>
+            </h2>
+            <div class="space-y-3">
+              {industry.surakshitam.map((item) => (
+                <a
+                  href={`${sura.domain}/${item.productSlug}/`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block rounded-xl border border-slate-700 bg-slate-800 p-4 hover:border-blue-600 transition-colors"
+                >
+                  <p class="font-semibold text-cyan-400">{item.label}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title={`Need help for your ${industry.name.toLowerCase()} organization?`}
+      description="Request a free consultation. We will review your specific requirements and suggest the right services."
+      primaryLabel="Request Free Consultation"
+      primaryHref="/contact/"
+      variant="blue"
+    />
+  </div>
+</MarketingLayout>

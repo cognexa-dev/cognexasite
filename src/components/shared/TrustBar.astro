@@ -1,0 +1,43 @@
+---
+interface TrustItem {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  items: TrustItem[];
+  variant?: "light" | "dark";
+}
+
+const { items, variant = "dark" } = Astro.props;
+const isDark = variant === "dark";
+---
+
+<div
+  class:list={[
+    "py-10 border-y",
+    isDark ? "bg-slate-800 border-slate-700" : "bg-slate-50 border-slate-200",
+  ]}
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <dl
+      class:list={[
+        "grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x",
+        isDark ? "divide-slate-700" : "divide-slate-200",
+      ]}
+    >
+      {
+        items.map((item) => (
+          <div class="px-4">
+            <dt class:list={["text-3xl font-bold", isDark ? "text-cyan-400" : "text-blue-600"]}>
+              {item.value}
+            </dt>
+            <dd class:list={["mt-1 text-sm", isDark ? "text-slate-400" : "text-slate-600"]}>
+              {item.label}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</div>

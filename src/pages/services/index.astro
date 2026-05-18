@@ -1,0 +1,53 @@
+---
+import MarketingLayout from "../../layouts/MarketingLayout.astro";
+import ServiceCard from "../../components/shared/ServiceCard.astro";
+import CTASection from "../../components/shared/CTASection.astro";
+import Breadcrumbs from "../../components/shared/Breadcrumbs.astro";
+import { cognexaServices } from "../../data/services";
+---
+
+<MarketingLayout
+  title="Services — IT, Cybersecurity, AI & Data | CogNexa"
+  description="CogNexa offers cybersecurity, data management, AI automation, Vidya AI, custom software development, and IT consulting services across India."
+>
+  <div class="bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <Breadcrumbs
+        crumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
+        variant="dark"
+      />
+    </div>
+    <section class="pt-8 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+            Our Services
+          </h1>
+          <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+            End-to-end technology services for businesses that need cybersecurity, data management, AI, or custom software.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {
+            cognexaServices.map((service) => (
+              <ServiceCard
+                name={service.name}
+                summary={service.summary}
+                href={`/services/${service.slug}/`}
+                cta={service.cta}
+                variant="dark"
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <CTASection
+      title="Not sure which service fits your need?"
+      description="Request a free consultation. Our team will understand your situation and point you in the right direction."
+      primaryLabel="Request Free Consultation"
+      primaryHref="/contact/"
+      variant="blue"
+    />
+  </div>
+</MarketingLayout>
