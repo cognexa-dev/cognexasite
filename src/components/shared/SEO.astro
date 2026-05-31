@@ -20,6 +20,7 @@ const {
 } = Astro.props;
 
 const canonicalUrl = canonical ?? Astro.url.href;
+const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).href;
 const schemaArray = schema
   ? Array.isArray(schema)
     ? schema
@@ -37,13 +38,13 @@ const schemaArray = schema
 <meta property="og:description" content={description} />
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonicalUrl} />
-<meta property="og:image" content={ogImage} />
+<meta property="og:image" content={ogImageUrl} />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image" content={ogImageUrl} />
 
 {
   schemaArray.map((s) => (
