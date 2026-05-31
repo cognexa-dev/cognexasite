@@ -1,9 +1,5 @@
 {
   "framework": "astro",
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "outputDirectory": "dist",
-  "engines": {
-    "node": "22.x"
-  }
+  "buildCommand": "rm -rf .astro node_modules/.astro .vercel/output && astro build",
+  "installCommand": "npm install"
 }
